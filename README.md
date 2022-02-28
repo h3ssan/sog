@@ -16,3 +16,8 @@ This tool generates random V2 & V3 .onion addresses.
   - `make install`
 - Run it globally
   - `onion_gen_addresses`
+
+## How to Identify Onion V3 Addresses
+
+- They're 56 long characters.
+- Always ends with the letter 'D'.
