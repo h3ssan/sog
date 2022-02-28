@@ -8,3 +8,5 @@ include_directories(.)
 add_executable(onion_gen_addresses
         main.c
         main.h)
+
+target_link_libraries(onion_gen_addresses -static)
