@@ -15,5 +15,6 @@ const unsigned char MIN_LEN = 0;
 const unsigned char MAX_LEN = 35;
 
 void generate_v3_address(unsigned int count);
+void generate_v2_address(unsigned int count);
 
 #endif //MAIN_H
