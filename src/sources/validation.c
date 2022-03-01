@@ -14,10 +14,6 @@ int isnumber(char *value) {
     return isDigit == 1;
 }
 
-int ispositive(unsigned long long value) {
-    return value >= 0;
-}
-
 void check_valid_options(int argc, char *argv[]) {
     for (int i = 1; i < argc; i++) {
         unsigned char argument_found = 0;
