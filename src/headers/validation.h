@@ -6,9 +6,7 @@
 #include "stdlib.h"
 #include "stdio.h"
 
-#include <src/headers/main.h>
-
 int isnumber(char *value);
-void check_valid_options(int argc, char *argv[]);
+void check_valid_options(int argc, char *argv[], const char *VALID_OPTIONS[]);
 
 #endif //VALIDATION_H

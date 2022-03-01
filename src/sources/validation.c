@@ -14,7 +14,7 @@ int isnumber(char *value) {
     return isDigit == 1;
 }
 
-void check_valid_options(int argc, char *argv[]) {
+void check_valid_options(int argc, char *argv[], const char *VALID_OPTIONS[]) {
     for (int i = 1; i < argc; i++) {
         unsigned char argument_found = 0;
         for (int j = 0; j < 6; j++) {

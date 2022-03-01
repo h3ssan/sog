@@ -4,7 +4,7 @@ int main(int argc, char *argv[]) {
     // Use current time as seed for random generators
     srand(time(0));
 
-    check_valid_options(argc, argv);
+    check_valid_options(argc, argv, VALID_OPTIONS);
     parse_arguments(argc, argv);
 
     if (onion_address_version == 3) {
