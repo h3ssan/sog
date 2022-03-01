@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.19)
-project(onion_gen_addresses C)
+project(simple_onion_generation C)
 
 set(CMAKE_C_STANDARD 11)
 
 include_directories(.)
 
-add_executable(onion_gen_addresses
+add_executable(sog
         src/sources/main.c
         src/headers/main.h
         src/sources/validation.c
         src/headers/validation.h)
 
-target_link_libraries(onion_gen_addresses -static)
+target_link_libraries(sog -static)
