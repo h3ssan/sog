@@ -25,33 +25,6 @@ void show_menu(char *app_name) {
     printf("--version, -v 2|3 \tOnion address version, can be 2 or 3.\n");
 }
 
-void check_valid_options(int argc, char *argv[]) {
-    for (int i = 1; i < argc; i++) {
-        unsigned char argument_found = 0;
-        for (int j = 0; j < 6; j++) {
-            if (strcmp(argv[i], VALID_OPTIONS[j]) == 0) {
-                argument_found = 1;
-
-                if (j > 1) {
-                    if (i+1 < argc) {
-                        i++;
-                    } else {
-                        printf("Value for %s is required.%c", argv[i], 10);
-                        printf("Try '%s --help' for more information.%c", argv[0], 10);
-                        exit(EXIT_FAILURE);
-                    }
-                }
-            }
-        }
-
-        if (argument_found == 0) {
-            printf("option %s is unknown.%c", argv[i], 10);
-            printf("Try '%s --help' for more information.%c", argv[0], 10);
-            exit(EXIT_FAILURE);
-        }
-    }
-}
-
 void argument_value_error(char *app_name, char *option) {
     printf("Value for %s is not valid.%c", option, 10);
     printf("Try '%s --help' for more information.%c", app_name, 10);

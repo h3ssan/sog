@@ -22,7 +22,6 @@ const unsigned char MAX_LEN = 35;
 unsigned char onion_address_version = 3;
 unsigned long long count = 1;
 
-void check_valid_options(int argc, char *argv[]);
 void argument_value_error(char *app_name, char *option);
 void parse_arguments(int argc, char *argv[]);
 void generate_v3_address();
