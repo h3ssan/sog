@@ -3,8 +3,11 @@
 
 #include "stdlib.h"
 #include "stdio.h"
-#include <time.h>
+#include "time.h"
 #include "string.h"
+#include "ctype.h"
+
+#include "src/headers/validation.h"
 
 const char *VALID_OPTIONS[6] = {"-h", "--help", "-v", "--version", "-c", "--count"};
 const unsigned char ALPHABETS[36] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
@@ -17,9 +20,11 @@ const unsigned char MIN_LEN = 0;
 const unsigned char MAX_LEN = 35;
 
 unsigned char onion_address_version = 3;
-unsigned int count = 1;
+unsigned long long count = 1;
 
 void check_valid_options(int argc, char *argv[]);
+void argument_value_error(char *app_name, char *option);
+void parse_arguments(int argc, char *argv[]);
 void generate_v3_address();
 void generate_v2_address();
 
