@@ -26,6 +26,8 @@ void check_valid_options(int argc, char *argv[]);
 void argument_value_error(char *app_name, char *option);
 void parse_arguments(int argc, char *argv[]);
 void generate_v3_address();
+void generate_v3_internal();
 void generate_v2_address();
+void generate_v2_internal();
 
 #endif //MAIN_H

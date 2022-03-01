@@ -7,7 +7,22 @@ int main(int argc, char *argv[]) {
     check_valid_options(argc, argv);
     parse_arguments(argc, argv);
 
+    if (onion_address_version == 3) {
+        generate_v3_address();
+    } else {
+        fprintf(stderr, "Kindly use V3 addresses, because of the deprecation of onion V2 addresses.%c%c", 10, 10);
+        generate_v2_address();
+    }
+
     return EXIT_SUCCESS;
+}
+
+void show_menu(char *app_name) {
+    printf("Usage: %s [options ...]", app_name);
+    printf("Options:\n\t");
+    printf("--help, -h\t\tShow this help menu.\n\t");
+    printf("--count, -c n \t\tApp generates nth onions.\n\t");
+    printf("--version, -v 2|3 \tOnion address version, can be 2 or 3.\n");
 }
 
 void check_valid_options(int argc, char *argv[]) {
@@ -49,8 +64,7 @@ void parse_arguments(int argc, char *argv[]) {
         char *value = argv[i+1];
 
         if ((strcmp(argument, "-h") == 0) || (strcmp(argument, "--help") == 0)) {
-            // TODO: prints the help menu
-            printf("Help menu%c", 10);
+            show_menu(argv[0]);
             exit(EXIT_SUCCESS);
         } else if ((strcmp(argument, "-v") == 0) || (strcmp(argument, "--version") == 0)) {
             if ((strcmp(value, "2") == 0) || (strcmp(value, "3") == 0)) {
@@ -71,25 +85,43 @@ void parse_arguments(int argc, char *argv[]) {
 }
 
 void generate_v3_address() {
-    for (int j = 0; j < count; ++j) {
-        for (int i = 0; i < 55; i++) {
-            int num = (rand() % (MAX_LEN - MIN_LEN + 1)) + MIN_LEN;
-
-            printf("%c", ALPHABETS[num]);
+    if (count > 0) {
+        for (int j = 0; j < count; ++j) {
+            generate_v3_internal();
         }
-        printf("d.onion%c", 10);
+    } else {
+        while (count <= 0) {
+            generate_v3_internal();
+        }
     }
 }
 
-void generate_v2_address() {
-    printf("Kindly use V3 addresses, because of the deprecation of onion V2 addresses.%c%c", 10, 10);
+void generate_v3_internal() {
+    for (int i = 0; i < 55; i++) {
+        int num = (rand() % (MAX_LEN - MIN_LEN + 1)) + MIN_LEN;
 
-    for (int j = 0; j < count; ++j) {
-        for (int i = 0; i < 15; i++) {
-            int num = (rand() % (MAX_LEN - MIN_LEN + 1)) + MIN_LEN;
-
-            printf("%c", ALPHABETS[num]);
-        }
-        printf(".onion%c", 10);
+        printf("%c", ALPHABETS[num]);
     }
+    printf("d.onion%c", 10);
+}
+
+void generate_v2_address() {
+    if (count > 0) {
+        for (int j = 0; j < count; ++j) {
+            generate_v2_internal();
+        }
+    } else {
+        while (count <= 0) {
+            generate_v2_internal();
+        }
+    }
+}
+
+void generate_v2_internal() {
+    for (int i = 0; i < 15; i++) {
+        int num = (rand() % (MAX_LEN - MIN_LEN + 1)) + MIN_LEN;
+
+        printf("%c", ALPHABETS[num]);
+    }
+    printf(".onion%c", 10);
 }
