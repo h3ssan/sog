@@ -4,9 +4,36 @@ int main(int argc, char *argv[]) {
     // Use current time as seed for random generators
     srand(time(0));
 
-    generate_v3_address();
+    check_valid_options(argc, argv);
 
     return EXIT_SUCCESS;
+}
+
+void check_valid_options(int argc, char *argv[]) {
+    for (int i = 1; i < argc; i++) {
+        unsigned char argument_found = 0;
+        for (int j = 0; j < 6; j++) {
+            if (strcmp(argv[i], VALID_OPTIONS[j]) == 0) {
+                argument_found = 1;
+
+                if (j > 1) {
+                    if (i+1 < argc) {
+                        i++;
+                    } else {
+                        printf("Value for %s is required.%c", argv[i], 10);
+                        printf("Try '%s --help' for more information.%c", argv[0], 10);
+                        exit(EXIT_FAILURE);
+                    }
+                }
+            }
+        }
+
+        if (argument_found == 0) {
+            printf("option %s is unknown.%c", argv[i], 10);
+            printf("Try '%s --help' for more information.%c", argv[0], 10);
+            exit(EXIT_FAILURE);
+        }
+    }
 }
 
 void generate_v3_address() {

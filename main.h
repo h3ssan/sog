@@ -4,7 +4,9 @@
 #include "stdlib.h"
 #include "stdio.h"
 #include <time.h>
+#include "string.h"
 
+const char *VALID_OPTIONS[6] = {"-h", "--help", "-v", "--version", "-c", "--count"};
 const unsigned char ALPHABETS[36] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
                                       'h', 'i', 'j', 'k', 'l', 'm', 'n',
                                       'o', 'p', 'q', 'r', 's', 't', 'u',
@@ -14,8 +16,10 @@ const unsigned char ALPHABETS[36] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
 const unsigned char MIN_LEN = 0;
 const unsigned char MAX_LEN = 35;
 
+unsigned char onion_address_version = 3;
 unsigned int count = 1;
 
+void check_valid_options(int argc, char *argv[]);
 void generate_v3_address();
 void generate_v2_address();
 
