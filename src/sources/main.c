@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 }
 
 void show_menu(char *app_name) {
-    printf("Usage: %s [options ...]", app_name);
+    printf("Usage: %s [options ...]\n", app_name);
     printf("Options:\n\t");
     printf("--help, -h\t\tShow this help menu.\n\t");
     printf("--count, -c n \t\tApp generates nth onions.\n\t");
