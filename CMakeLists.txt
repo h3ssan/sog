@@ -7,6 +7,8 @@ include_directories(.)
 
 add_executable(onion_gen_addresses
         main.c
-        main.h)
+        main.h
+        src/sources/validation.c
+        src/headers/validation.h)
 
 target_link_libraries(onion_gen_addresses -static)
