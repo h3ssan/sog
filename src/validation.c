@@ -1,4 +1,4 @@
-#include "src/headers/validation.h"
+#include "sog/validation.h"
 
 int isnumber(char *value) {
     unsigned int value_len = strlen(value);

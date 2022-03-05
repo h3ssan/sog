@@ -1,4 +1,4 @@
-#include "src/headers/main.h"
+#include "sog/main.h"
 
 int main(int argc, char *argv[]) {
     /* Use current time as seed for random generators */

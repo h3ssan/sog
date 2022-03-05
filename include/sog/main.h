@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "src/headers/validation.h"
+#include "validation.h"
 
 const char *VALID_OPTIONS[6] = {"-h", "--help", "-v", "--version", "-c", "--count"};
 const unsigned char ALPHABETS[36] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
