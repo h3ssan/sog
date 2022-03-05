@@ -1,4 +1,4 @@
-## Onion Addresses Generator
+## Simple Onion Generation
 
 This tool generates random V2 & V3 .onion addresses.
 
@@ -9,11 +9,11 @@ This tool generates random V2 & V3 .onion addresses.
   - `cd sog`
 - Build using CMake
   - `mkdir build && cd build`
-  - `cmake ..`
+  - `cmake -DCMAKE_BUILD_TYPE=Release ..`
 - Compile using make
   - `make`
 - Install the binary
-  - `make install`
+  - `make install` P.S. You'll need privilege permissions.
 - Run it globally
   - `sog`
 
