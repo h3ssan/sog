@@ -48,7 +48,7 @@ void parse_arguments(int argc, char *argv[]) {
             }
         } else if ((strcmp(argument, "-c") == 0) || (strcmp(argument, "--count") == 0)) {
             if (isnumber(value)) {
-                count = atoll(value);
+                count = atol(value);
             } else {
                 argument_value_error(argv[0], argument);
             }
