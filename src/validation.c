@@ -17,8 +17,10 @@ int isnumber(char *value) {
 
 void check_valid_options(int argc, char *argv[], const char *VALID_OPTIONS[]) {
     unsigned int i, j;
+    unsigned char argument_found;
+
     for (i = 1; i < argc; i++) {
-        unsigned char argument_found = 0;
+        argument_found = 0;
         for (j = 0; j < 6; j++) {
             if (strcmp(argv[i], VALID_OPTIONS[j]) == 0) {
                 argument_found = 1;
