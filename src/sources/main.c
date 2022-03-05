@@ -20,9 +20,9 @@ int main(int argc, char *argv[]) {
 void show_menu(char *app_name) {
     printf("Usage: %s [options ...]\n", app_name);
     printf("Options:\n\t");
+    printf("--count, -c [0-9]+ \tGenerate n many addresses, 0 = unlimited.\n\t");
     printf("--help, -h\t\tShow this help menu.\n\t");
-    printf("--count, -c n \t\tApp generates nth onions.\n\t");
-    printf("--version, -v 2|3 \tOnion address version, can be 2 or 3.\n");
+    printf("--version, -v (2|3) \tAddress version, can be 2 or 3.\n");
 }
 
 void argument_value_error(char *app_name, char *option) {
