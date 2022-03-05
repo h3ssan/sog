@@ -24,9 +24,7 @@ unsigned long long count = 1;
 
 void argument_value_error(char *app_name, char *option);
 void parse_arguments(int argc, char *argv[]);
-void generate_v3_address();
-void generate_v3_internal();
-void generate_v2_address();
-void generate_v2_internal();
+void generate_address(unsigned char address_version);
+void generation(unsigned int address_len, char *address_ends);
 
 #endif /* MAIN_H */

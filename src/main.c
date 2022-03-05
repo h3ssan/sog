@@ -7,12 +7,7 @@ int main(int argc, char *argv[]) {
     check_valid_options(argc, argv, VALID_OPTIONS);
     parse_arguments(argc, argv);
 
-    if (onion_address_version == 3) {
-        generate_v3_address();
-    } else {
-        fprintf(stderr, "Kindly use V3 addresses, because of the deprecation of onion V2 addresses.%c%c", 10, 10);
-        generate_v2_address();
-    }
+    generate_address(onion_address_version);
 
     return EXIT_SUCCESS;
 }
@@ -59,48 +54,35 @@ void parse_arguments(int argc, char *argv[]) {
     }
 }
 
-void generate_v3_address() {
-    unsigned int i;
-    if (count > 0) {
-        for (i = 0; i < count; ++i) {
-            generate_v3_internal();
-        }
-    } else {
-        while (count <= 0) {
-            generate_v3_internal();
-        }
-    }
-}
+void generation(unsigned int address_len, char *address_ends) {
+    unsigned int i, num;
 
-void generate_v3_internal() {
-    unsigned int i;
-    for (i = 0; i < 55; i++) {
-        int num = (rand() % (MAX_LEN - MIN_LEN + 1)) + MIN_LEN;
+    for (i = 0; i < address_len; i++) {
+        num = (rand() % (MAX_LEN - MIN_LEN + 1)) + MIN_LEN;
 
         printf("%c", ALPHABETS[num]);
     }
-    printf("d.onion%c", 10);
+    printf("%s%c", address_ends, 10);
 }
 
-void generate_v2_address() {
-    unsigned int i;
-    if (count > 0) {
-        for (i = 0; i < count; ++i) {
-            generate_v2_internal();
-        }
+void generate_address(unsigned char address_version) {
+    unsigned int i, address_len;
+    char *address_ends;
+
+    if (address_version == 3) {
+        address_len = 55;
+        address_ends = "d.onion";
     } else {
-        while (count <= 0) {
-            generate_v2_internal();
-        }
-    }
-}
+        address_len = 15;
+        address_ends = ".onion";
 
-void generate_v2_internal() {
-    unsigned int i;
-    for (i = 0; i < 15; i++) {
-        int num = (rand() % (MAX_LEN - MIN_LEN + 1)) + MIN_LEN;
-
-        printf("%c", ALPHABETS[num]);
+        fprintf(stderr, "Kindly use V3 addresses, because of the deprecation of onion V2 addresses.%c%c", 10, 10);
     }
-    printf(".onion%c", 10);
+
+    if (count == 0)
+        while (count == 0)
+            generation(address_len, address_ends);
+    else
+        for (i = 0; i < count; i++)
+            generation(address_len, address_ends);
 }
