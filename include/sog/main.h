@@ -8,6 +8,7 @@
 #include <time.h>
 #include "validation.h"
 
+const char *APP_VERSION = "V2022-03-05";
 const char *VALID_OPTIONS[6] = {"-h", "--help", "-v", "--version", "-c", "--count"};
 const unsigned char ALPHABETS[36] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
                                       'h', 'i', 'j', 'k', 'l', 'm', 'n',

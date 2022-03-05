@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
 }
 
 void show_menu(char *app_name) {
+    printf("Version: %s%c", APP_VERSION, 10);
     printf("Usage: %s [options ...]\n", app_name);
     printf("Options:\n\t");
     printf("--count, -c [0-9]+ \tGenerate n many addresses, 0 = unlimited.\n\t");
