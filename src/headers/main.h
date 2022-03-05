@@ -28,4 +28,4 @@ void generate_v3_internal();
 void generate_v2_address();
 void generate_v2_internal();
 
-#endif //MAIN_H
+#endif /* MAIN_H */

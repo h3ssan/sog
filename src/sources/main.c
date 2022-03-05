@@ -1,7 +1,7 @@
 #include "src/headers/main.h"
 
 int main(int argc, char *argv[]) {
-    // Use current time as seed for random generators
+    /* Use current time as seed for random generators */
     srand(time(0));
 
     check_valid_options(argc, argv, VALID_OPTIONS);
@@ -32,7 +32,8 @@ void argument_value_error(char *app_name, char *option) {
 }
 
 void parse_arguments(int argc, char *argv[]) {
-    for (int i = 1; i < argc; ++i) {
+    unsigned int i;
+    for (i = 1; i < argc; ++i) {
         char *argument = argv[i];
         char *value = argv[i+1];
 
@@ -58,8 +59,9 @@ void parse_arguments(int argc, char *argv[]) {
 }
 
 void generate_v3_address() {
+    unsigned int i;
     if (count > 0) {
-        for (int j = 0; j < count; ++j) {
+        for (i = 0; i < count; ++i) {
             generate_v3_internal();
         }
     } else {
@@ -70,7 +72,8 @@ void generate_v3_address() {
 }
 
 void generate_v3_internal() {
-    for (int i = 0; i < 55; i++) {
+    unsigned int i;
+    for (i = 0; i < 55; i++) {
         int num = (rand() % (MAX_LEN - MIN_LEN + 1)) + MIN_LEN;
 
         printf("%c", ALPHABETS[num]);
@@ -79,8 +82,9 @@ void generate_v3_internal() {
 }
 
 void generate_v2_address() {
+    unsigned int i;
     if (count > 0) {
-        for (int j = 0; j < count; ++j) {
+        for (i = 0; i < count; ++i) {
             generate_v2_internal();
         }
     } else {
@@ -91,7 +95,8 @@ void generate_v2_address() {
 }
 
 void generate_v2_internal() {
-    for (int i = 0; i < 15; i++) {
+    unsigned int i;
+    for (i = 0; i < 15; i++) {
         int num = (rand() % (MAX_LEN - MIN_LEN + 1)) + MIN_LEN;
 
         printf("%c", ALPHABETS[num]);
