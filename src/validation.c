@@ -1,10 +1,11 @@
-#include "src/headers/validation.h"
+#include "sog/validation.h"
 
 int isnumber(char *value) {
     unsigned int value_len = strlen(value);
     unsigned char isDigit = 1;
 
-    for (int i = 0; i < value_len; i++) {
+    unsigned int i;
+    for (i = 0; i < value_len; i++) {
         if (!isdigit(value[i])) {
             isDigit = 0;
             break;
@@ -15,9 +16,10 @@ int isnumber(char *value) {
 }
 
 void check_valid_options(int argc, char *argv[], const char *VALID_OPTIONS[]) {
-    for (int i = 1; i < argc; i++) {
+    unsigned int i, j;
+    for (i = 1; i < argc; i++) {
         unsigned char argument_found = 0;
-        for (int j = 0; j < 6; j++) {
+        for (j = 0; j < 6; j++) {
             if (strcmp(argv[i], VALID_OPTIONS[j]) == 0) {
                 argument_found = 1;
 
